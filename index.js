@@ -13,7 +13,7 @@ const outputList=document.querySelector(".output_list");
 const searchButton=document.querySelector(".search_btn");
 const crossIcon=document.querySelector(".fa-xmark")
 
-// inputDetailArr=JSON.parse(localStorage.getItem("detail")) || [];
+inputDetailArr=JSON.parse(localStorage.getItem("detail")) || [];
 inputDetailArr=[];
 let count=0;
 let listName, listMail, listPaan, listCity;
@@ -92,6 +92,7 @@ function deleteList(event){
           inputDetailArr.splice(index,1);
        }
     })
+    localStorage.setItem("detail",JSON.stringify(inputDetailArr));
     }
 
 //-------------------------------------------TO EDIT--------------------------------------------------------------
@@ -128,6 +129,7 @@ inputDetailArr.forEach((ele,index)=>{
       ele.mail=mailText;
    }
 })
+localStorage.setItem("detail",JSON.stringify(inputDetailArr));
 // console.log(inputDetailArr)
 reset();
 }
@@ -174,11 +176,11 @@ searchButton.addEventListener("click",(event)=>{
      {
         createListElement(ele);
      }
-     else
-      {
-         errorPaan.innerText="PAAN doesn't match";
-         setTimeout(()=>errorPaan.innerText="",2000);
-      }
+   //   else
+   //   {
+   //      errorPaan.innerText="PAAN doesn't match";
+   //      setTimeout(()=>errorPaan.innerText="",2000);
+   //   }
  })
 })
 crossIcon.addEventListener("click",(event)=>{
