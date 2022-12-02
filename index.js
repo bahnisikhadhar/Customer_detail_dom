@@ -28,6 +28,7 @@ function reset()
    inputMail.value="";
    errorPaan.innerText="";
    errorInput.innerText="";
+   
 }
 //-------------------------------CREATE LIST ELEMENT------------------------------------------------------------
 
@@ -155,16 +156,17 @@ function filterPaan(event){
     outputList.innerHTML = "";
 
 console.log(searchPaan.value)
-//  let searchInput=searchPaan.value.split("");
+ let searchInput=searchPaan.value.split("");
 //  let letter=0;
 //  let temp;
-//  inputDetailArr.forEach((ele,index)=>{
-//      let paanArr=ele.paan.split("");
-//      if(nameArr[index]==searchInput[index])
-//      {
-//         createListElement(ele);
-//      }
-//  })
+
+ inputDetailArr.forEach((ele,index)=>{
+     let paanArr=ele.paan.split("");
+     if(paanArr[index]==searchInput[index])
+     {
+        createListElement(ele);
+     }
+ })
 searchButton.addEventListener("click",(event)=>{
     outputList.innerHTML = "";
      inputDetailArr.forEach((ele)=>{
@@ -172,6 +174,11 @@ searchButton.addEventListener("click",(event)=>{
      {
         createListElement(ele);
      }
+     else
+      {
+         errorPaan.innerText="PAAN doesn't match";
+         setTimeout(()=>errorPaan.innerText="",2000);
+      }
  })
 })
 crossIcon.addEventListener("click",(event)=>{
@@ -180,6 +187,7 @@ crossIcon.addEventListener("click",(event)=>{
         createListElement(ele);
     })
 })
+
 
 }
 
