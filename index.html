@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Customer_details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form class="search">
+        <div class="left">
+        <p> Search by PAAN: </p>
+        <div class="search_container">
+        <input type="text" class="search_paan" placeholder="search your details using PAAN number"><i class="fa-solid fa-xmark"></i>
+    </div>
+        <button class="search_btn btn">search</button>
+    </div>
+    <div class="right">
+    Search by Name:<select class="sequence">
+            <option value="select">Select from the below</option>
+            <option value="A_to_Z" data-filter="A_to_Z">A to Z</option>
+            <option value="Z_to_A" data-filter="Z_to_A">Z to A</option>
+        </select>
+    </div>
+   </form>
+  
+  <div class="error_paan error"></div>
+<!-------------------------------------------------------------------------------------------------------------->
+    <form class="input_detail">
+        Enter Your Name:<input type="text" class="input_name input" placeholder="Bahnisikha Dhar" >
+        Enter Your City:<input type="text" class="input_city input" placeholder="Kolkata" >
+        Enter Your PAAN:<input type="text" class="input_paan input" placeholder="ABC12345CD" >
+        Enter Your Email:<input type="email" class="input_mail input" placeholder="abc@mail.com" >
+        <input type="submit" class="add_btn btn" value="Add">
+    </form>
+    <div class="error_input error"></div>
+
+    <ul class="output_list">
+        <!-- <li class="li_decoration">
+            <div class="output_decor">your name</div>
+            <div class="output_decor">your city</div>
+            <div class="output_decor">your paan</div>
+            <div class="output_decor">your mail</div>
+            <button class="edit_btn">edit</button>
+            <button class="delete_btn">delete</button>
+        </li> -->
+    </ul>
+
+    <script src="index.js"></script>
+</body>
+</html>

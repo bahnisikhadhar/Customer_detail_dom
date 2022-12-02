@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 3rem 3rem;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    gap: 7rem;
+    align-items: center;
+}
+.search_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    width: 100%;
+    padding:0rem 1rem;
+    border-radius: 10px;
+}
+.search_paan{
+    border: none;
+    outline: none;
+}
+.left,.right{
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    align-items: center;
+}
+.search_paan,.sequence {
+    padding: 1rem;
+    width: 100%;
+    border-radius: 10px;
+}
+.input_detail{
+    margin: 1.5rem 0rem;
+}
+.input {
+  padding: 1rem;
+  width: 15%;
+  border-radius: 10px;
+  
+}
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+}
+.error {
+    color: red;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/******************************************************JS CSS*******************************************/
+.li_decoration {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+}
+.output_decor {
+    border: 1px solid black;
+    width: 22%;
+    padding: 1rem;
+    border-radius: 5px;
+}
+.edit_btn,.delete_btn {
+    padding: .7rem 1rem;
+    border-radius: 5px;
+}
