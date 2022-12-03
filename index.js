@@ -56,10 +56,42 @@ function addInput(event){
     {
        SaveUpdate(event,inputName.value,inputCity.value,inputMail.value,inputPaan.value);
     }else{
-    if(inputName.value=="" || inputCity.value=="" || inputMail.value=="" || inputPaan.value=="")
+//---------------------------------ERROR MESSAGES-----------------------------------------------------------------
+
+    if(inputName.value=="" && inputCity.value=="" && inputMail.value=="" && inputPaan.value=="")
     {
-       errorInput.innerText="Enter your Details";
+       errorInput.innerText="Enter your Detail";
        setTimeout(()=>errorInput.innerText="",2000);
+    }
+    else if(inputName.value=="")
+    {
+      errorInput.innerText="Enter your Name";
+       setTimeout(()=>errorInput.innerText="",2000);
+    }
+    else if(inputCity.value=="")
+    {
+      errorInput.innerText="Enter your City";
+      setTimeout(()=>errorInput.innerText="",2000);
+    }
+    else if(inputMail.value=="")
+    {
+      errorInput.innerText="Enter your Mail";
+      setTimeout(()=>errorInput.innerText="",2000);
+    }
+    else if(!(inputMail.value.includes("@") && inputMail.value.includes(".")))
+    {
+      errorInput.innerText="Your Mail must include @ and .";
+      setTimeout(()=>errorInput.innerText="",2000);
+    }
+    else if(inputPaan.value=="")
+    {
+      errorInput.innerText="Enter your PAAN";
+      setTimeout(()=>errorInput.innerText="",2000);
+    }
+    else if(inputPaan.value.length<10)
+    {
+      errorInput.innerText="PAAN should be of 10 characters";
+      setTimeout(()=>errorInput.innerText="",2000);
     }
     else 
     {
@@ -159,8 +191,6 @@ function filterPaan(event){
 
 console.log(searchPaan.value)
  let searchInput=searchPaan.value.split("");
-//  let letter=0;
-//  let temp;
 
  inputDetailArr.forEach((ele,index)=>{
      let paanArr=ele.paan.split("");
@@ -176,13 +206,13 @@ searchButton.addEventListener("click",(event)=>{
      {
         createListElement(ele);
      }
-   //   else
-   //   {
-   //      errorPaan.innerText="PAAN doesn't match";
-   //      setTimeout(()=>errorPaan.innerText="",2000);
-   //   }
+   //   else if(!(searchPaan.value==ele.paan)){
+   //   outputList.innerHTML=`<div class="error_paan error"> PAAN NOT FOUND </div`
  })
+ 
 })
+
+
 crossIcon.addEventListener("click",(event)=>{
     outputList.innerHTML = "";
     inputDetailArr.forEach((ele)=>{

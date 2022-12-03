@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main>
     <form class="search">
         <div class="left">
         <p> Search by PAAN: </p>
@@ -21,14 +22,13 @@
     </div>
     <div class="right">
     Search by Name:<select class="sequence">
-            <option value="select">Select from the below</option>
+            <option value="select">Original Sequence</option>
             <option value="A_to_Z" data-filter="A_to_Z">A to Z</option>
             <option value="Z_to_A" data-filter="Z_to_A">Z to A</option>
         </select>
     </div>
    </form>
   
-  <div class="error_paan error"></div>
 <!-------------------------------------------------------------------------------------------------------------->
     <form class="input_detail">
         Enter Your Name:<input type="text" class="input_name input" placeholder="Bahnisikha Dhar" >
@@ -38,18 +38,19 @@
         <input type="submit" class="add_btn btn" value="Add">
     </form>
     <div class="error_input error"></div>
+<!-------------------------------------------------------------------------------------------------------------->
 
-    <ul class="output_list">
-        <!-- <li class="li_decoration">
-            <div class="output_decor">your name</div>
-            <div class="output_decor">your city</div>
-            <div class="output_decor">your paan</div>
-            <div class="output_decor">your mail</div>
-            <button class="edit_btn">edit</button>
-            <button class="delete_btn">delete</button>
-        </li> -->
-    </ul>
+<div class="container_title">
+    <h3>Name</h3>
+    <h3>City</h3>
+    <h3>PAAN</h3>
+    <h3>Mail</h3>
+    <h4>Action</h4>
+</div>
 
+<!------------------------------------------------------------------------------------------------------------->
+    <ul class="output_list"></ul>
+</main>
     <script src="index.js"></script>
 </body>
 </html>
