@@ -84,6 +84,7 @@ main{
     margin-top: 1rem;
     font-weight: bold;
     animation: blink 1s linear infinite;
+    margin-bottom: 1rem;
 }
 @keyframes blink {
     0%{opacity: 0;}
@@ -149,4 +150,7 @@ h3,h4 {
 }
 .edit_btn:active {
     background-color: green;
+}
+.error_paan {
+    color: black;
 }
