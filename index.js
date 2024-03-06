@@ -13,15 +13,15 @@ const outputList = document.querySelector(".output_list");
 const searchButton = document.querySelector(".search_btn");
 const crossIcon = document.querySelector(".fa-xmark")
 
-inputDetailArr = JSON.parse(localStorage.getItem("details")) || [];
-// inputDetailArr=[];
+// inputDetailArr = JSON.parse(localStorage.getItem("details")) || [];
+inputDetailArr=[];
 let count = 0;
 let listName, listMail, listPaan, listCity;
 //--------------------------------------DISPLAY FROM LOCAL STORAGE EVEN AFTER REFRESHING--------------------------------
 
-inputDetailArr.map((ele)=>{
-   createListElement(ele);
-})
+// inputDetailArr.map((ele)=>{
+//    createListElement(ele);
+// })
 
 //----------------------------------------TO RESET INPUT AND ERROR FIELD---------------------------------
 
@@ -94,9 +94,10 @@ function addInput(event){
     }
     else if(inputPaan.value.length<10)
     {
-      errorInput.innerText="PAAN should be of 10 characters";
+      errorInput.innerText="PAAN should be atleast of 10 characters";
       setTimeout(()=>errorInput.innerText="",2000);
     }
+
     else 
     {
        const inputDetailObj={
@@ -108,7 +109,7 @@ function addInput(event){
        };
        inputDetailArr.push(inputDetailObj);
 
-       localStorage.setItem("details",JSON.stringify(inputDetailArr));
+      //  localStorage.setItem("details",JSON.stringify(inputDetailArr));
 
        createListElement(inputDetailObj);
        reset();
@@ -118,17 +119,19 @@ function addInput(event){
 //------------------------------------------TO DELETE OUTPUT DETAILS------------------------------------------------------------
 
 function deleteList(event){
-    // console.log(event);
-    event.path[1].remove(); 
+   //  console.log(event.target.parentElement.parentElement);
+   //  event.path[1].remove(); 
+   event.target.parentElement.remove();
     console.log(inputDetailArr);
     
     // delete from the array
     inputDetailArr.forEach((ele,index)=>{
-       if(parseInt(event.path[1].id)==ele.id){
+      //  if(parseInt(event.path[1].id)==ele.id){
+         if(event.target.parentElement.id == ele.id){
           inputDetailArr.splice(index,1);
        }
     })
-    localStorage.setItem("details",JSON.stringify(inputDetailArr));
+   //  localStorage.setItem("details",JSON.stringify(inputDetailArr));
     }
 
 //-------------------------------------------TO EDIT DETAILS--------------------------------------------------------------
@@ -139,6 +142,7 @@ function editList(event){
     listCity = event.path[1].childNodes[2];
     listPaan = event.path[1].childNodes[4];
     listMail = event.path[1].childNodes[6];
+
     inputName.value = listName.textContent;
     inputCity.value = listCity.textContent;
     inputPaan.value = listPaan.textContent;
@@ -165,8 +169,8 @@ inputDetailArr.forEach((ele,index)=>{
       ele.mail = mailText;
    }
 })
-localStorage.setItem("details",JSON.stringify(inputDetailArr));
-// console.log(inputDetailArr)
+// localStorage.setItem("details",JSON.stringify(inputDetailArr));
+
 reset();
 }
 //-------------------------------------------FILTER NAME(A TO Z & Z TO A)--------------------------------------------------------
@@ -192,17 +196,15 @@ function filterName(event)
 
 function filterPaan(event){
     outputList.innerHTML = "";
-
-// console.log(searchPaan.value);
-
 let searchInput= inputDetailArr.filter((ele)=>{
    if(ele.paan.includes(searchPaan.value)){
       return ele;
    }
  })
+
 if(searchInput.length!==0)
 {
-   searchInput.map((ele)=>{
+   searchInput.forEach((ele)=>{
       createListElement(ele);
    })
 }
@@ -234,7 +236,7 @@ crossIcon.addEventListener("click",(event)=>{
     addButton.addEventListener("click",addInput);
 
     outputList.addEventListener("click",(event)=>{
-        // console.log(event)
+        console.log(event)
            if(event.target.classList.contains("delete_btn"))
            {
               deleteList(event);
